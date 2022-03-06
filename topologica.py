@@ -11,7 +11,16 @@ def precedentes(t):
             retorno.append(res[0])
     return retorno
 
-
+#esta funcion mira si las tareas que tienen restricciones pueden completarse ya, es decir, que todas sus tareas restrictivas se han completado
+def ejecutadas(prec):
+    encontradas = 0
+    for i in range(len(prec)):
+        if prec[i] in completadas:
+            encontradas = encontradas + 1
+    if encontradas == len(prec):
+        return True
+    else:
+        return False
 
 #codigo principal
 while len(completadas) < len(tareas):
