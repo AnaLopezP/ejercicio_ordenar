@@ -11,6 +11,7 @@ def crear_lista():
 
 #hacemos una funcion que separa un segmento
 def segmentos(lista, i):
+    segmento = []
     segmento.append(lista[i])
     while (len(lista) > 1) and (lista[i] >= lista[i + 1]):
         segmento.append(lista[i + 1])
@@ -18,13 +19,23 @@ def segmentos(lista, i):
     lista.pop(i)
     return segmento
 
+#funcion que hace una lista con todos los segmentos de la lista
+def seg_lista(lista, grupoSegmentos):
+    while len(lista) > 1:
+        segmento = []
+        segmento = segmentos(lista, 0)
+        print(segmento)
+        grupoSegmentos.append(segmento)
+        print(" Esta es la lista que queda " + str(lista))
+    return grupoSegmentos
+
 #codigo principal
 crear_lista()
 print(lista)
-segmento = []
-segmento = segmentos(lista, 0)
-print(segmento)
-print(lista)
+grupoSegmentos = []
+grupoSegmentos = seg_lista(lista, grupoSegmentos)
+print(grupoSegmentos)
+
 
 
 
